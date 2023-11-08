@@ -1,3 +1,3 @@
-CREATE DATABASE db_practicoSemestre;
+CREATE DATABASE "nombre_data_base";
 
-USE db_practicoSemestre;
+USE "nombre_data_base";
