@@ -47,7 +47,7 @@ Modificá las siguientes variables:
 
 5. **Configurá la base de datos**:
 
-Entrá a la carpeta `/init` y luego en el archivo `create_schema.sql`. Y modificá las siguiente lineas:
+Entrá a la carpeta `/init` y luego en el archivo `create_schema.sql`. Y modificá las siguiente lineas (**sin comillas**):
 
 `CREATE DATABASE "nombre_data_base";`
 
