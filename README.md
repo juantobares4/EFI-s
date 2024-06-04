@@ -1,86 +1,75 @@
-## Vlog en Flask Dockerizado ##
+# Basic React Projects
 
-*Bienvenidos a nuestro Vlog de Flask*
+This repository contains a collection of basic projects developed with React. Each project has its own folder and focuses on different concepts and functionalities of React.
 
-En este repositorio de GitHub les presentamos a *InstaPosts*. Un Vlog interactivo, el cuál dispone de las siguientes características y funcionalidades:
+## Projects
 
-1. *Frontend*: Desarrollado en HTML y CSS. Lo que permite correrlo en el navegador predeterminado de cada usuario.
-2. *Backend*: Desarrollado con Python (Flask). 
-3. Autenticación de usuario (registro y logeo).
-4. Encriptado de contraseñas mediante la función SHA256.
-5. Creación de Posteos, comentarios, borrado de publicaciones y obtención de categorías disponibles.
+1. **Programmer's Blog**
+  - A simple blog for programmers where they can share their knowledge and experiences.
+  - Uses React Router for handling navigation between different views (article list, article details, create new article, etc.).
+  - Implements the `useState` hook for managing the local state of components.
+  - Applies the `useEffect` hook for performing side effects, such as fetching data from a server or performing cleanup tasks.
 
-En paralelo, también cuenta con una API, mediante el uso de la clase MethodView y endpoints, para poder realizar funcionalidades CRUD (create, read, update and delete). Como también el Logeo típico de una aplicación. 
+2. **Calculator**
+  - A basic calculator with simple arithmetic operations.
+  - Utilizes the `useState` hook to maintain the state of the calculator (current value, operation, etc.).
+  - Employs functional components and component composition for better modularity.
 
-### Requisitos Previos ###
+3. **Game-Javascript**
+  - A hangman game developed with JavaScript.
+  - Uses the `useState` hook to maintain the state of the game (secret word, guessed letters, remaining attempts, etc.).
+  - Applies the `useEffect` hook to perform side effects, such as initializing the game or checking for win/lose conditions.
+  - Implements reusable functional components for the game board, letters, hangman drawing, etc.
 
-- Docker
-- Docker Compose
-- Python
-- Git
-- Pip (Administrador de paquetes de Python)
+4. **Todo List**
+  - An application for creating and managing to-do lists, with the ability to mark tasks as completed.
+  - Utilizes the `useState` hook to maintain the state of tasks (task list, completed tasks, etc.).
+  - Applies the `useEffect` hook to perform side effects, such as loading tasks from local storage or saving changes.
+  - Implements reusable functional components for the task list, input form, and individual task items.
 
-**Pasos a seguir para poder correr este proyecto en tu computadora**:
+5. **Simple Ecommerce Page**
+  - A basic ecommerce page with a product catalog and a shopping cart.
+  - Uses React Router for handling navigation between different views (catalog, product details, cart, etc.).
+  - Implements the `useState` hook to maintain the state of the shopping cart and selected products.
+  - Applies the `useEffect` hook to perform side effects, such as fetching product data from a server or saving the cart state in local storage.
 
-1. **Cloná el repositorio en tu máquina local**
+6. **Card-Pokemos**
+  - A "Rock, Paper, Scissors" game with a Pokémon twist, where players choose between Fire, Grass, and Water, represented by the three basic Pokémon from the first generation.
+  - Utilizes the `useState` hook to maintain the state of the game (player's choice, computer's choice, result, etc.).
+  - Implements reusable functional components for the game board, Pokémon cards, result display, etc.
+  - Applies the `useEffect` hook to perform side effects, such as initializing the game or checking for win/lose conditions.
 
-`git clone git@github.com:juantobares4/docker_vlog.git` (usando SSH) |`git clone https://github.com/juantobares4/docker_vlog.git` (usando HTTPS)
+These projects will allow you to explore different concepts and features of React, such as state management, effects, routing, component composition, and more. Each project is designed to be scalable and extensible, providing you with the opportunity to add additional features and enhance your React skills.
 
-2. **Entrá a la carpeta clonada**:
+## Technologies Used
 
-`cd docker_vlog`
+- React
+- JavaScript
+- HTML
+- CSS
 
-3. **Creá el archivo .env**
+## Installation and Running
 
-Es necesario seguir el modelo del archivo *.env.example* por lo que vas a tener que copiarlo y modificarle el nombre a ".env"
+1. Clone this repository to your local machine.
+2. Navigate to the project folder you want to run.
+3. Install the dependencies by running `npm install`.
+4. Start the development server with `npm start`.
+5. Open `http://localhost:3000` in your browser to see the application in action.
 
-4. **Configurá las variables de entorno**
+## Contributing
 
-Modificá las siguientes variables:
+If you wish to contribute to this repository, please follow these steps:
 
-- `MYSQL_PASSWORD=contraseña`
-- `MYSQL_DATABASE=nombre_base_datos`
-- `MYSQL_USER=usuario`
-- `MYSQL_CONTAINER_NAME=nombre_contenedor`
+1. Fork this repository.
+2. Create a new branch for your feature: `git checkout -b my-new-feature`
+3. Make your changes and commit with descriptive messages: `git commit -m "Add new feature"`
+4. Push your changes to your remote repository: `git push origin my-new-feature`
+5. Create a new pull request in this repository.
 
-- `SECRET_KEY = secret-key-ejemplo`
+## License
 
-5. **Configurá la base de datos**:
+This project is licensed under the [MIT License](LICENSE).
 
-Entrá a la carpeta `/init` y luego en el archivo `create_schema.sql`. Y modificá las siguiente lineas (**sin comillas**):
+## Contact
 
-`CREATE DATABASE "nombre_data_base";`
-
-`USE "nombre_data_base";`
-
-**Es importante que en el nombre de la base de datos uses el mismo que colocaste anteriormente en la variable *MYSQL_DATABASE* del archivo .env**
-
-6. **Modificá el archivo Dockerfile**
-
-En las lineas:
-
-`COPY . /docker_vlog`
-`WORKDIR /docker_vlog`
-
-Modificá según el directorio que vas a copiar y en el cuál vas a trabajar.
-
-7. **Construí la imágen de Docker**:
-
-Corré el comando `sudo docker compose build` para contruir la imágen que posteriormente usará el contendor para poder correr **(Si no te funciona ese comando, probá con agregarle un guión medio de la siguiente forma: `sudo docker-compose build`)**
-
-8. **Corré el contenedor**:
-
-A partir de la imágen construida anteriormente, corré el comando `sudo docker compose up`.
-
-9. **Accede a la página**:
-
-Después de unos segundos (y un largo suceso de mensajes), debería correr el contenedor correctamente. Por lo que en una de las últimas líneas debería aparecerte un mensaje como este `Listening at: http://0.0.0.0:5005`. Apretando en esa dirección deberías poder acceder a la interfaz principal (manteniendo el `CTRL + click`).
-
-**¡Y con esto, ya estaría todo listo para poder empezar a vlogear!**
-
-### Contribuciones ###
-
-- Los usuarios que realizaron este código fueron juantobares4, Dkkisslingtt y emanuel079.
-
-**¡Esperamos que disfrutes utilizando esta aplicación para crear tu vlog y gestionar tu contenido de video de manera eficiente!**
-
+If you have any questions or suggestions, feel free to contact me at [my email address](mailto:danielkissling65@email.com).
